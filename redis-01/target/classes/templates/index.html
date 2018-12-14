@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/login" method="get">
+    手机号：<input type="text" name="phone" id="phone" th:value="${phone}"/>
+    <!--<a href="/sendCode?phone=18522352972">发送验证码</a>-->
+    <input type="button" value="发送验证码" onclick="sendCode()" />
+    <span th:text="${msg}"></span><br/>
+    验证码：<input type="text" name="inputCode" id="inputCode"/>
+    <input type="submit" value="登录" />
+</form>
+</body>
+<script type="text/javascript">
+    function sendCode(){
+        var num=document.getElementById("phone").value;
+        window.location.href="/sendCode?phone="+num;
+    }
+</script>
+</html>
